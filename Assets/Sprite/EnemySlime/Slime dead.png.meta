@@ -52,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -90,7 +90,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -133,10 +133,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 81
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -153,12 +153,12 @@ TextureImporter:
       name: Slime dead_1
       rect:
         serializedVersion: 2
-        x: 79
+        x: 16
         y: 0
-        width: 18
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -175,12 +175,12 @@ TextureImporter:
       name: Slime dead_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 32
         y: 0
         width: 16
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: Slime dead_3
       rect:
         serializedVersion: 2
-        x: 112
+        x: 48
         y: 0
         width: 16
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -219,12 +219,12 @@ TextureImporter:
       name: Slime dead_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 64
         y: 0
         width: 16
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -241,12 +241,12 @@ TextureImporter:
       name: Slime dead_5
       rect:
         serializedVersion: 2
-        x: 144
+        x: 80
         y: 0
         width: 16
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -259,11 +259,99 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Slime dead_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfb310be71b969b419eec73cefbb3858
+      internalID: 34282427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime dead_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c65b996b40f5b84597673990cbe9516
+      internalID: 1969021791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime dead_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6be10b4d86333054dab50a6db3e7c452
+      internalID: 857837036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime dead_9
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6adc85361aa3f8849b51d8cfecd933a2
+      internalID: 698452412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 75dfc4889fa062f43b741d00cc8c15d8
     internalID: 0
     vertices: []
     indices: 
@@ -279,6 +367,10 @@ TextureImporter:
       Slime dead_3: -2319080073274541000
       Slime dead_4: -7795554045291960350
       Slime dead_5: -7329392826469821781
+      Slime dead_6: 34282427
+      Slime dead_7: 1969021791
+      Slime dead_8: 857837036
+      Slime dead_9: 698452412
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
