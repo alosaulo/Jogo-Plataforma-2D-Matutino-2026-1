@@ -26,21 +26,63 @@ public class PlayerController : MonoBehaviour
 
     Vector2 currentVelocity;
     Rigidbody2D rb;
+    Animator animator;
+
+    string currentState = "player_idle";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentHealth = MaxHealth;
+        animator = GetComponent<Animator>();
+        SetState("player_hurt");
     }
 
+    void SetState(string newState)
+    {
+        if(currentState == newState)
+            return;
+        
+        currentState = newState;
+        animator.Play(currentState);
+    }
+
+    void UpdateAnimation()
+    {
+        if (isGrounded)
+        {
+            if(currentVelocity.x != 0)
+            {
+                SetState("player_walk");
+            }
+            else
+            {
+                SetState("player_idle");
+            }
+        }
+        else
+        {
+            if(rb.linearVelocityY > 0)
+            {
+                SetState("player_jump");
+            }
+            else if(rb.linearVelocityY < 0)
+            {
+                SetState("player_fall");
+            }
+        }
+    }
+    
     // Update is called once per frame
     void Update()
     {
+        
         if(isKnockedBack) return;
 
         Gravity();
         Move();
+        UpdateAnimation();
 
         rb.linearVelocity = currentVelocity;
 
