@@ -77,8 +77,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if(isKnockedBack) return;
+        if (isKnockedBack)
+        {
+            SetState("player_hurt");
+            return;
+        }
 
         Gravity();
         Move();
@@ -87,7 +90,6 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = currentVelocity;
 
         InvincibleCounter();
-
     }
 
     void InvincibleCounter()
