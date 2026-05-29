@@ -24,6 +24,14 @@ public class PlayerController : MonoBehaviour
     public float KnockbackDuration = 1f;
     private bool isKnockedBack;
 
+    [Header("Combat")]
+    public GameObject BulletPrefab;
+    public float AttackDuration = 0.2f;
+    public float AttackCooldown = 0.5f;
+    float attackTimerDuration;
+    float attackTimerCooldown;
+    bool isAttacking;
+
     Vector2 currentVelocity;
     Rigidbody2D rb;
     Animator animator;
@@ -50,6 +58,11 @@ public class PlayerController : MonoBehaviour
 
     void UpdateAnimation()
     {
+        if (isAttacking)
+        {
+            SetState("player_atk");
+            return;
+        }
         if (isGrounded)
         {
             if(currentVelocity.x != 0)
@@ -85,6 +98,7 @@ public class PlayerController : MonoBehaviour
 
         Gravity();
         Move();
+        DoAtk();
         UpdateAnimation();
 
         rb.linearVelocity = currentVelocity;
@@ -154,6 +168,29 @@ public class PlayerController : MonoBehaviour
         rb.AddForce((direction + Vector2.up) * force, ForceMode2D.Impulse);
         CancelInvoke("EndKnockBack");
         Invoke("EndKnockBack", KnockbackDuration);
+    }
+
+    void DoAtk()
+    {
+        if(attackTimerCooldown > 0)
+            attackTimerCooldown -= Time.deltaTime;
+
+        if(InputSystem.actions["Attack"].triggered && attackTimerCooldown <= 0)
+        {
+            isAttacking = true;
+            attackTimerDuration = AttackDuration;
+            Instantiate(BulletPrefab, transform.position, transform.rotation);
+            attackTimerCooldown = AttackCooldown;
+        }
+
+        if(isAttacking)
+        {
+            attackTimerDuration -= Time.deltaTime;
+            if(attackTimerDuration <= 0)
+            {
+                isAttacking = false;
+            }
+        }
     }
 
     public void TakeDamage(int damage)
