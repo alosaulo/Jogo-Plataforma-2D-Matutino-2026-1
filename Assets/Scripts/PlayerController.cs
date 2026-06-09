@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
 
+    public GameManager GM;
+
     public float MoveSpeed = 5f;
     public float JumpForce = 5f;
     public int Damage = 1;
@@ -44,6 +46,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         currentHealth = MaxHealth;
         animator = GetComponent<Animator>();
+        GM = FindFirstObjectByType<GameManager>();
         SetState("player_hurt");
     }
 
@@ -215,6 +218,11 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.tag == "Coin")
+        {
+            GM.CollectCoin();
+            Destroy(collision.gameObject);
+        }
         if(collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             isGrounded = true;
