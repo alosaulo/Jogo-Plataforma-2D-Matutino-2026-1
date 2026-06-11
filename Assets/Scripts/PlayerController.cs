@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
         currentHealth = MaxHealth;
         animator = GetComponent<Animator>();
         GM = FindFirstObjectByType<GameManager>();
+        GM.SetPlayerSpawnPoint(transform.position);
         SetState("player_hurt");
     }
 
@@ -93,12 +94,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Atualização de HUD
+        UpdateLifeFill();
+        
+        //Fisica e animação
         if (isKnockedBack)
         {
             SetState("player_hurt");
             return;
         }
-
+        
         Gravity();
         Move();
         DoAtk();
@@ -107,6 +112,12 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = currentVelocity;
 
         InvincibleCounter();
+    }
+
+    void UpdateLifeFill()
+    {
+        float lifeFill =(float)currentHealth/MaxHealth;
+        GM.SetLifeFill(lifeFill);
     }
 
     void InvincibleCounter()
@@ -201,6 +212,7 @@ public class PlayerController : MonoBehaviour
         if(isInvincible) return;
 
         currentHealth -= damage;
+        UpdateLifeFill();
         isInvincible = true;
         invincibilityTimer = InvincibilityDuration;
 
@@ -212,8 +224,12 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("Morreu!");
-        gameObject.SetActive(false);
+        GM.PlayerDied();
+    }
+
+    public void RecoverHealth()
+    {
+        currentHealth = MaxHealth;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
