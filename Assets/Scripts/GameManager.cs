@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Time.timeScale = 0;
         player = FindFirstObjectByType<PlayerController>();
     }
 
@@ -59,6 +61,12 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         PnlGameOver.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void PlayerDied()
@@ -72,6 +80,13 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
+    }
+
+    public void StartGame()
+    {
+        Time.timeScale = 1;
+        PnlStart.SetActive(false);
+        Debug.LogWarning("Iniciar Jogo!");
     }
 
 }

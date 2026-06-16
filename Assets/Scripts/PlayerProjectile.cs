@@ -12,6 +12,10 @@ public class PlayerProjectile : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if(Speed < 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
         rb = GetComponent<Rigidbody2D>();
         rb.linearVelocity = transform.right * Speed;
         Destroy(gameObject, Lifetime);

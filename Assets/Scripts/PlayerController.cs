@@ -193,7 +193,12 @@ public class PlayerController : MonoBehaviour
         {
             isAttacking = true;
             attackTimerDuration = AttackDuration;
-            Instantiate(BulletPrefab, transform.position, transform.rotation);
+            GameObject projectileGO = Instantiate(BulletPrefab, transform.position, transform.rotation);
+            PlayerProjectile playerProjectile = projectileGO.GetComponent<PlayerProjectile>();
+            if(transform.localScale.x < 0)
+            {
+                playerProjectile.Speed *= -1;
+            }
             attackTimerCooldown = AttackCooldown;
         }
 
