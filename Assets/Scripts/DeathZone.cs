@@ -1,19 +1,26 @@
 using UnityEngine;
 
+// =====================================================================
+// DeathZone
+// Área invisível embaixo da fase: se o jogador cair em um buraco
+// e encostar nela, morre na hora (perde uma vida).
+// Vai no GameObject "DeathZone", que tem um BoxCollider2D marcado como Trigger.
+// =====================================================================
 public class DeathZone : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Start não é usado neste script
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
+    // Update não é usado neste script
     void Update()
     {
-        
+
     }
 
+    // Algo entrou na área: se for o jogador, ele morre
     void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
